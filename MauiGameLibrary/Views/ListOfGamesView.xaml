@@ -5,23 +5,32 @@
              xmlns:models="clr-namespace:MauiGameLibrary.Models"
              xmlns:viewmodels="clr-namespace:MauiGameLibrary.ViewModels"
              Title="ListOfGamesView" x:DataType="viewmodels:ListOfGamesViewModel">
-    <CollectionView ItemsSource="{Binding Games}">
+    <CollectionView ItemsSource="{Binding Games}" SelectionMode="Single"  SelectedItem="{Binding SelectedGame}"  SelectionChangedCommand="{Binding GameSelectedCommand}">
         <CollectionView.ItemTemplate>
             
                 <DataTemplate x:DataType="models:GameInformation">
-                    <Grid>
+                    <Grid Padding="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
+                    </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                        
+                    <!--Border BackgroundColor="Aqua">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="30"/>
+                        </Border.StrokeShape>
+                    </Border>-->
 
                         <Image Source="{Binding Image}"  Grid.RowSpan="2" Aspect="AspectFill" HeightRequest="80" WidthRequest="80" />
-                    <Label Text="{Binding Title}" Grid.Column="1"/>
+                        <Label Text="{Binding Title}"   Grid.ColumnSpan="2" FontAttributes="Bold" Grid.Column="1" Margin="5"/>
+                        <Label Text="{Binding GameType}" FontAttributes="Italic" TextColor="Gray" Grid.Column="1" Grid.Row="1" Margin="5"/>
+                        <Label Text="{Binding AgeRestriction}" TextColor="Red" HorizontalOptions="End" Grid.Column="2" Grid.Row="1" Margin="5" />
 
                 </Grid>
                 

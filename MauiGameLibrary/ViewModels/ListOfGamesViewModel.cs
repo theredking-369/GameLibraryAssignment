@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 
 namespace MauiGameLibrary.ViewModels
@@ -16,6 +17,20 @@ namespace MauiGameLibrary.ViewModels
        private GameDataService _gameDataService;
 
         private List<GameInformation> _games;
+
+        private GameInformation _selectedGame;
+
+        public GameInformation SelectedGame
+        {
+            get { return _selectedGame; }
+            set
+            {
+                _selectedGame = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand GameSelectedCommand { get; set; }
 
         public List<GameInformation> Games
         {
@@ -30,8 +45,18 @@ namespace MauiGameLibrary.ViewModels
         public ListOfGamesViewModel(GameDataService service)
         {
             _gameDataService = service;
+
+            GameSelectedCommand = new Command(GameSelected);
         }
 
+        private async void GameSelected(object obj)
+        {
+            var param = new ShellNavigationQueryParameters()
+            {
+                {"SelectedGame", SelectedGame }
+            };
+            await AppShell.Current.GoToAsync("updategameroute", param);
+        }
 
         public void RefreshGames()
         {

@@ -5,6 +5,14 @@
         public AppShell()
         {
             InitializeComponent();
+
+            RegisterRoutes();
+        }
+
+        private void RegisterRoutes()
+        {
+            
+            Routing.RegisterRoute("updategameroute", typeof(Views.ListOfGamesView));
         }
     }
 }

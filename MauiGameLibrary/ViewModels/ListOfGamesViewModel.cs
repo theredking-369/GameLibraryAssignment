@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace MauiGameLibrary.ViewModels
 {
     
-    public class ListOfGamesViewModel
+    public class ListOfGamesViewModel : BaseViewModel
     {
        private GameDataService _gameDataService;
 
@@ -20,13 +20,22 @@ namespace MauiGameLibrary.ViewModels
         public List<GameInformation> Games
         {
             get { return _games; }
-            set { _games = value; }
+            set { 
+                _games = value;
+                OnPropertyChanged();
+            }
         }
 
 
         public ListOfGamesViewModel(GameDataService service)
         {
             _gameDataService = service;
+        }
+
+
+        public void RefreshGames()
+        {
+            Games = _gameDataService.GetAllGameInformation();
         }
     }
 }

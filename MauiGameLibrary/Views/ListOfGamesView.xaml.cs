@@ -7,7 +7,16 @@ public partial class ListOfGamesView : ContentPage
 	{
 		InitializeComponent();
 
-		BindingContext = vm;
-		
+		BindingContext = vm;	
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+		ListOfGamesViewModel vm = BindingContext as ListOfGamesViewModel;
+
+		if (vm != null)
+			vm.RefreshGames();
+    }
 }

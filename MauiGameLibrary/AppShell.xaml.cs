@@ -12,7 +12,7 @@
         private void RegisterRoutes()
         {
             
-            Routing.RegisterRoute("updategameroute", typeof(Views.ListOfGamesView));
+            Routing.RegisterRoute("updategameroute", typeof(Views.UpdateGameView));
         }
     }
 }

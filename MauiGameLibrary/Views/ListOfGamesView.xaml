@@ -9,7 +9,13 @@
         <CollectionView.ItemTemplate>
             
                 <DataTemplate x:DataType="models:GameInformation">
-                    <Grid Padding="5">
+
+                <Border>
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20"/>
+                    </Border.StrokeShape>
+                
+                <Grid Padding="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -21,11 +27,7 @@
                             <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                         
-                    <!--Border BackgroundColor="Aqua">
-                        <Border.StrokeShape>
-                            <RoundRectangle CornerRadius="30"/>
-                        </Border.StrokeShape>
-                    </Border>-->
+                    
 
                         <Image Source="{Binding Image}"  Grid.RowSpan="2" Aspect="AspectFill" HeightRequest="80" WidthRequest="80" />
                         <Label Text="{Binding Title}"   Grid.ColumnSpan="2" FontAttributes="Bold" Grid.Column="1" Margin="5"/>
@@ -33,7 +35,7 @@
                         <Label Text="{Binding AgeRestriction}" TextColor="Red" HorizontalOptions="End" Grid.Column="2" Grid.Row="1" Margin="5" />
 
                 </Grid>
-                
+               </Border>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>

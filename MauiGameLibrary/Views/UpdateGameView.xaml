@@ -10,12 +10,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <Entry Text=""/>
+        <Label Grid.Row="1" Text="Title: "/>
+        
+        <Entry Grid.Row="1" HorizontalOptions="End"  Text="{Binding SelectedGame.Title}"/>
+        <Image Grid.Row="0" Source="{Binding SelectedGame.Image}"/>
     </Grid>
 </ContentPage>

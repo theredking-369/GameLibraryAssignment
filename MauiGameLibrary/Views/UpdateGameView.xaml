@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<views:BasePage  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:MauiGameLibrary.ViewModels"
+             xmlns:views="clr-namespace:MauiGameLibrary.Views"
              x:Class="MauiGameLibrary.Views.UpdateGameView"
              Title="UpdateGameView" x:DataType="viewmodels:UpdateGameViewModel">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,5 +20,10 @@
         
         <Entry Grid.Row="1" HorizontalOptions="End"  Text="{Binding SelectedGame.Title}"/>
         <Image Grid.Row="0" Source="{Binding SelectedGame.Image}"/>
+
+        <Label Grid.Row="2" Text="Description:" />
+        <Editor Grid.Row="3" Text="{Binding SelectedGame.Description}" HeightRequest="300"/>
+
+        
     </Grid>
-</ContentPage>
+</views:BasePage>

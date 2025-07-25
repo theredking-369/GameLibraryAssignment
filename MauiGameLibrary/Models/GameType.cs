@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MauiGameLibrary.Models
 {
-    internal class GameType
+    public class GameType
     {
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

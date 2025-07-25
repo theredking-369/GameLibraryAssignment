@@ -28,8 +28,18 @@ namespace MauiGameLibrary.ViewModels
         public UpdateGameViewModel(GameDataService gameDataservice)
         {
             _gameDataService = gameDataservice;
-
-            
         }
+
+        private List<GameType> _gameTypes;
+
+        public List<GameType> MyProperty
+        {
+            get { return _gameTypes; }
+            set { _gameTypes = value;
+                OnPropertyChanged();
+
+            }
+        }
+
     }
 }

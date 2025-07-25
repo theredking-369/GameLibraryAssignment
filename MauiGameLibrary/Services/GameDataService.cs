@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//using Windows.Networking.Sockets;
 
 namespace MauiGameLibrary.Services
 {
     public class GameDataService
     {
+        private List<GameInformation> _gameInformation = new List<GameInformation>();
+        private List<GameType> _gameTypes = new List<GameType>();
         public GameDataService()
         {
             CreateFakeGameInformation();
@@ -43,7 +46,7 @@ namespace MauiGameLibrary.Services
             });
         }
 
-        private List<GameInformation> _gameInformation = new List<GameInformation>();
+        
 
         public List<GameInformation> GetAllGameInformation()
         {
@@ -75,6 +78,29 @@ namespace MauiGameLibrary.Services
         public List<GameInformation>GetGameInformationByTitle(string title)
         {
             return _gameInformation.Where(gameInfo => gameInfo.Title == title).ToList();
+        }
+
+        public void PrePopulateData()
+        {
+            PrePopulateGameTypes();   
+        }
+
+        private void PrePopulateGameTypes()
+        {
+            GameType gameType = new GameType() { Name = "Nintendo 64", Description = "Nintendo's 64 bit console" };
+            _gameTypes.Add(gameType);
+            gameType = new GameType() { Name = "Nintendo Wii", Description = "Nintendo's family motion console" };
+            _gameTypes.Add(gameType);
+            gameType = new GameType() { Name = "Nintendo Switch", Description = "Nintendo's handheld console" };
+            _gameTypes.Add(gameType);
+            gameType = new GameType() { Name = "Playstation 5", Description = "" };
+            _gameTypes.Add(gameType);
+        }
+
+        public List<GameType> GetGameTypes()
+        {
+            return _gameTypes;
+           
         }
     }
 }

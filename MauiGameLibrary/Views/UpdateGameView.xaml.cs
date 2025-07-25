@@ -2,7 +2,7 @@ using MauiGameLibrary.ViewModels;
 
 namespace MauiGameLibrary.Views;
 
-public partial class UpdateGameView : ContentPage
+public partial class UpdateGameView : BasePage
 {
 	
 	public UpdateGameView(UpdateGameViewModel vm)
@@ -12,11 +12,5 @@ public partial class UpdateGameView : ContentPage
 		BindingContext = vm;
 	}
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-
-        UpdateGameViewModel vm = BindingContext as UpdateGameViewModel;
-
-    }
+    
 }

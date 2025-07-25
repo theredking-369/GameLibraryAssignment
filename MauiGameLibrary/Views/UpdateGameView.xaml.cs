@@ -11,4 +11,12 @@ public partial class UpdateGameView : ContentPage
 
 		BindingContext = vm;
 	}
+
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+
+        UpdateGameViewModel vm = BindingContext as UpdateGameViewModel;
+
+    }
 }
